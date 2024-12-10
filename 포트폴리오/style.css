@@ -1,0 +1,135 @@
+/* 초기화 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 배경 이미지 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('images/main.png'); /* 배경 이미지 경로 */
+    background-size: cover; /* 화면 크기에 맞게 배경 이미지 크기 조정 */
+    background-position: center center; /* 배경 이미지가 화면 중앙에 위치 */
+    background-repeat: no-repeat; /* 배경 이미지 반복하지 않음 */
+}
+
+/* 히어로 섹션 배경 이미지 */
+#hero {
+    background-image: url('images/main.png'); /* 배경 이미지 경로 */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 80px 0; /* 적당한 여백을 추가 */
+}
+
+/* 버튼 스타일 */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* 메뉴 스타일 */
+.menu-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 10px 0; /* 각 버튼 사이 간격 */
+}
+
+.menu a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff; /* 버튼 배경색 */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #0056b3; /* 마우스 호버 시 색상 */
+}
+
+/* 프로젝트 컨테이너 스타일 */
+.project-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff; /* 배경을 하얀색으로 수정 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.project-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.project-item {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex; /* Flexbox로 이미지와 텍스트 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+/* 프로젝트 항목 이미지 크기 설정 */
+.project-item img {
+    display: block; /* 이미지를 블록 요소로 변경 */
+    width: 100%; /* 부모 컨테이너에 맞게 너비 조정 */
+    max-width: 120px; /* 최대 너비를 더 작게 설정 */
+    height: auto; /* 이미지 비율 유지 */
+    object-fit: cover; /* 영역을 채우되 자르기 */
+    border-radius: 8px; /* 이미지 둥글게 만들기 */
+    margin-right: 20px; /* 텍스트와 이미지 간격 설정 */
+}
+
+
+.project-item h2 {
+    font-size: 20px;
+    color: #007bff;
+}
+
+.project-item p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.project-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #0056b3;
+}
