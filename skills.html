@@ -6,14 +6,19 @@
   <title>기술 및 능력</title>
   <style>
     /* 전체 배경 이미지 설정 */
+    html, body {
+      height: 100%; /* 화면 전체 높이를 채우도록 설정 */
+      margin: 0; /* 기본 여백 제거 */
+    }
+
     body {
       font-family: 'Arial', sans-serif;
       background-image: url('images/skill.png'); /* 배경 이미지 경로 */
       background-size: cover; /* 화면 크기에 맞게 배경 이미지 크기 조정 */
-      background-position: center center; /* 배경 이미지가 화면 중앙에 위치 */
+      background-position: center; /* 배경 이미지가 화면 중앙에 위치 */
       background-repeat: no-repeat; /* 배경 이미지 반복하지 않음 */
-      height: 100vh; /* 화면 전체 높이를 사용 */
-      margin: 0; /* 기본 여백 제거 */
+      height: 100%; /* 화면 전체 높이를 사용 */
+      padding-bottom: 60px; /* 푸터 공간을 위한 여백 추가 */
     }
 
     /* Header 스타일 */
@@ -44,6 +49,7 @@
       display: flex;
       justify-content: center; /* 버튼들이 가로로 중앙 정렬되도록 */
       gap: 20px; /* 버튼 사이의 간격 */
+      flex-wrap: wrap; /* 화면 크기에 맞춰 버튼들이 줄바꿈 가능하도록 */
     }
 
     .menu li {
@@ -70,7 +76,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-start; /* 세로로 위쪽 정렬 */
-      height: 100vh; /* 화면 전체 높이를 사용 */
+      height: auto; /* 배경이 꽉 차게끔 설정 */
       padding-top: 50px; /* 상단에 여백 추가 */
     }
 
@@ -104,7 +110,7 @@
       padding: 20px 0;
       background-color: #333;
       color: #fff;
-      position: relative;
+      position: fixed; /* 화면 하단에 고정 */
       bottom: 0;
       width: 100%;
     }
@@ -113,6 +119,43 @@
       width: 100%;
       text-align: center;
     }
+
+    /* 모바일 반응형 디자인 */
+    @media (max-width: 768px) {
+      /* 메뉴 버튼 크기 조정 */
+      .menu a {
+        font-size: 16px;
+        padding: 8px 15px;
+      }
+
+      /* 기술 섹션 제목 크기 조정 */
+      .skills-container h2 {
+        font-size: 28px;
+      }
+
+      /* 기술 내용 크기 조정 */
+      .skills-container ul {
+        font-size: 16px;
+      }
+
+      /* 메뉴 버튼들을 세로로 배치 */
+      .menu {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* 배경 이미지 크기 조정 */
+      body {
+        background-size: contain; /* 배경 이미지를 화면에 맞게 크기 조정 */
+      }
+
+      /* 기술 섹션 너비 조정 */
+      .skills-container {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+
   </style>
 </head>
 <body>

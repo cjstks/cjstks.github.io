@@ -30,6 +30,7 @@
       color: rgb(19, 18, 18);
       font-size: 36px;
       text-align: center;
+      color: white;
     }
 
     /* 메뉴 스타일 */
@@ -39,6 +40,7 @@
       display: flex;
       justify-content: center; /* 메뉴 항목을 가로로 중앙 정렬 */
       gap: 20px;
+      flex-wrap: wrap; /* 모바일에서 메뉴 항목이 자동으로 줄바꿈 되도록 설정 */
     }
 
     nav a {
@@ -60,15 +62,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding: 40px 20px; /* 위와 아래 여백을 설정하고, 양옆 여백은 조금 줄임 */
     }
 
-    .container {
+    /* 연락처 내용 */
+    .contact-container {
       background-color: rgba(255, 255, 255, 0.8); /* 배경을 약간 투명하게 설정 */
       padding: 40px;
       border-radius: 10px;
       text-align: center;
-      width: 80%;
+      width: 90%; /* 화면 크기에 맞게 폭을 90%로 설정 */
       max-width: 600px; /* 최대 너비 설정 */
     }
 
@@ -86,11 +89,42 @@
       margin-bottom: 10px;
     }
 
+    /* 푸터 스타일 */
     footer {
       text-align: center;
       padding: 20px 0;
-      background-color: #333;
-      color: #fff;
+      background-color: #e7d8d8;
+      color: white; /* 색상 지정 */
+      position: absolute; /* 화면 하단에 고정 */
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* footer 안의 .footer-container에도 color white 지정 */
+    .footer-container {
+      color: white; /* 하위 컨테이너에 흰색 텍스트 적용 */
+    }
+
+    /* 모바일 대응을 위한 미디어 쿼리 */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 28px; /* 모바일에서 타이틀 크기 조정 */
+      }
+
+      nav a {
+        font-size: 16px; /* 모바일에서 메뉴 글자 크기 줄이기 */
+        padding: 8px 15px; /* 버튼 크기 줄이기 */
+      }
+
+      .contact-container {
+        padding: 30px; /* 모바일에서 여백 조정 */
+        width: 95%; /* 화면 폭에 맞게 조정 */
+      }
+
+      footer {
+        font-size: 14px; /* 푸터 글자 크기 조정 */
+        padding: 15px 0; /* 푸터 크기 조정 */
+      }
     }
   </style>
 </head>
@@ -111,7 +145,7 @@
   </header>
 
   <section id="contact">
-    <div class="container">
+    <div class="contact-container">
       <h2>문의하기</h2>
       <p>이메일: dcjstks5380@gmail.com</p>
       <p>전화번호: 010-3820-0943</p>
@@ -119,7 +153,7 @@
   </section>
 
   <footer>
-    <div class="container">
+    <div class="footer-container">
       <p>&copy; 2024 강민규. All rights reserved.</p>
     </div>
   </footer>
