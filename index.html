@@ -1,233 +1,192 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>강민규의 포트폴리오</title>
-  <style>
-/* 초기화 스타일 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 전체 배경 이미지 */
-body {
-  font-family: 'Arial', sans-serif;
-  background-image: url('images/back_image.png'); /* 배경 이미지 경로 */
-  background-size: cover; /* 화면 크기에 맞게 배경 이미지 크기 조정 */
-  background-position: center; /* 배경 이미지가 화면 중앙에 위치 */
-  background-repeat: no-repeat; /* 배경 이미지 반복하지 않음 */
-  height: 100vh; /* 화면 전체 높이를 사용 */
-  margin: 0; /* body의 기본 여백을 없앰 */
-}
-
-/* 히어로 섹션 배경 이미지 */
-#hero {
-  background-image: url('images/back_image.png'); /* 배경 이미지 경로 */
-  background-size: cover;
-  background-position: center; /* 배경 이미지가 화면 중앙에 위치 */
-  background-repeat: no-repeat;
-  padding: 80px 0; /* 적당한 여백을 추가 */
-  height: 100vh; /* 화면 전체 높이를 사용 */
-  position: relative; /* 오버레이를 위한 상대 위치 */
-}
-
-/* 배경 오버레이 */
-#hero::before {
-  content: ''; /* 빈 내용 */
-  position: absolute; /* 절대 위치 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 검정색 반투명 오버레이 */
-  z-index: 1; /* 텍스트가 오버레이 위로 오도록 설정 */
-}
-
-/* 텍스트 컨테이너 */
-#hero .container {
-  position: relative; /* 텍스트가 오버레이 위에 표시되도록 설정 */
-  z-index: 2; /* 텍스트가 오버레이 위에 보이게 설정 */
-  text-align: center; /* 텍스트 중앙 정렬 */
-  color: #fff; /* 텍스트 색상 흰색 */
-}
-
-/* 텍스트 스타일 */
-#hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  padding-left: 20px; /* 오른쪽으로 약간 이동 */
-}
-
-#hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.btn {
-  display: inline-block;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 18px;
-}
-
-.btn:hover {
-  background-color: #0056b3;
-}
-
-/* Header 스타일 */
-header {
-  display: flex;
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
-  padding: 20px 0;
-  background-color: rgba(0, 0, 0, 0.5); /* 배경을 약간 어두운 색으로 설정 */
-  position: relative;
-}
-
-/* 헤더의 타이틀 */
-header h1 {
-  color: white;
-  font-size: 36px;
-  text-align: center; /* 오른쪽 정렬 */
-}
-
-/* 메뉴 스타일 */
-.menu-container {
-  text-align: center;
-  padding: 20px;
-}
-
-.menu {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center; /* 버튼들이 가로로 중앙 정렬되도록 */
-  gap: 20px; /* 버튼 사이의 간격 */
-}
-
-.menu li {
-  margin: 0;
-}
-
-.menu a {
-  display: inline-block;
-  text-decoration: none;
-  font-size: 18px;
-  color: #fff;
-  background-color: #007bff; /* 버튼 배경색 */
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.menu a:hover {
-  background-color: #0056b3; /* 마우스 호버 시 색상 */
-}
-
-/* 푸터 스타일 */
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #333;
-  color: #fff;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-footer .container {
-  width: 100%;
-  text-align: center;
-}
-
-/* 모바일 반응형 스타일 */
-@media (max-width: 768px) {
-  /* 헤더 타이틀 크기 줄이기 */
-  header h1 {
-      font-size: 28px;
-  }
-
-  /* 메뉴를 세로로 배치 */
-  .menu {
-      flex-direction: column;
-      gap: 10px;
-  }
-
-  /* 히어로 텍스트 크기 줄이기 */
-  #hero h2 {
-      font-size: 2rem;
-  }
-
-  #hero p {
-      font-size: 1rem;
-  }
-
-  /* 버튼 크기 조정 */
-  .btn {
-      padding: 8px 16px;
-      font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  /* 더 작은 화면에서 텍스트 크기 더 줄이기 */
-  #hero h2 {
-      font-size: 1.5rem;
-  }
-
-  #hero p {
-      font-size: 0.9rem;
-  }
-
-  /* 버튼 크기 더욱 줄이기 */
-  .btn {
-      padding: 6px 12px;
-      font-size: 14px;
-  }
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <!-- 모바일 기기에 최적화된 뷰포트 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>1인 가구 맞춤 AI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1>강민규의 포트폴리오</h1>
-      <!-- 메뉴 스타일 -->
-<nav>
-    <ul class="menu">
-      <li><a href="index.html" class="btn">홈</a></li>
-      <li><a href="about.html" class="btn">자기소개</a></li>
-      <li><a href="skills.html" class="btn">기술 및 능력</a></li>
-      <li><a href="projects.html" class="btn">프로젝트</a></li>
-      <li><a href="contact.html" class="btn">연락처</a></li>
-    </ul>
-  </nav>
+<body class="bg-gray-50">
+<!-- Navigation Bar -->
+<header class="bg-white shadow-md p-4 fixed w-full top-0 z-10" data-aos="fade-down">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-600">헤븐즈도어</h1>
+        <!-- 데스크탑 내비게이션 -->
+        <nav class="hidden md:block">
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="text-gray-700 hover:text-blue-600">서비스 소개</a></li>
+                <li><a href="#howItWorks" class="text-gray-700 hover:text-blue-600">이용 방법</a></li>
+                <li><a href="#faq" class="text-gray-700 hover:text-blue-600">FAQ</a></li>
+                <li><a href="#download" class="text-gray-700 hover:text-blue-600">다운로드</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-blue-600">문의</a></li>
+            </ul>
+        </nav>
+        <!-- 모바일 내비게이션 버튼 -->
+        <button id="mobileMenuButton" class="md:hidden text-gray-700 focus:outline-none">
+            <i class="ph ph-list text-3xl"></i>
+        </button>
     </div>
-  </header>
+    <!-- 모바일 내비게이션 메뉴 (기본 숨김) -->
+    <nav id="mobileMenu" class="hidden md:hidden bg-white">
+        <ul class="flex flex-col space-y-4 p-4">
+            <li><a href="#about" class="text-gray-700 hover:text-blue-600">서비스 소개</a></li>
+            <li><a href="#howItWorks" class="text-gray-700 hover:text-blue-600">이용 방법</a></li>
+            <li><a href="#faq" class="text-gray-700 hover:text-blue-600">FAQ</a></li>
+            <li><a href="#download" class="text-gray-700 hover:text-blue-600">다운로드</a></li>
+            <li><a href="#contact" class="text-gray-700 hover:text-blue-600">문의</a></li>
+        </ul>
+    </nav>
+</header>
 
-  <!-- Main Content -->
-  <main>
-    <section id="hero">
-        <div class="container">
-          <h2>안녕하세요! 게임 개발자를 꿈꾸는 강민규입니다.</h2>
-          <p>열정과 기술을 바탕으로 사람들에게 즐거움을 선사하는 게임을 개발을 하고 싶습니다.</p>
-          <a href="about.html" class="btn">자세히 보기</a>
+<!-- Hero Section -->
+<section class="bg-blue-600 text-white text-center py-16 md:py-20 mt-20" data-aos="fade-up">
+    <h2 class="text-3xl md:text-5xl font-bold">1인 가구를 위한 맞춤형 AI</h2>
+    <p class="text-base md:text-lg mt-4">AI와 대화하고, 필요한 정보를 쉽게 얻으세요.</p>
+    <!-- 체험하기 링크: 기기별로 이동할 페이지를 자바스크립트로 결정 -->
+    <a id="experienceLink" href="#" class="mt-6 inline-block bg-white text-blue-600 px-4 md:px-6 py-2 md:py-3 rounded-lg shadow-md hover:bg-gray-200">
+        체험하기
+    </a>
+</section>
+
+<!-- 서비스 소개 Section -->
+<section id="about" class="py-16 md:py-20 bg-white text-center" data-aos="fade-up">
+    <div class="container mx-auto px-4">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">서비스 소개</h3>
+        <p class="text-gray-700 max-w-3xl mx-auto">
+            우리 AI는 1인 가구의 생활에 꼭 맞춘 맞춤형 정보를 제공합니다.
+            AI와의 대화를 통해 요리 레시피, 생활 꿀팁, 최신 뉴스 등 일상에서 필요한 다양한 정보를 쉽고 빠르게 받아보실 수 있습니다.
+        </p>
+    </div>
+</section>
+
+<!-- 이용 방법 Section -->
+<section id="howItWorks" class="py-16 md:py-20 bg-gray-50 text-center" data-aos="fade-up">
+    <div class="container mx-auto px-4">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">이용 방법</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <i class="ph ph-microphone text-blue-500 text-4xl md:text-5xl"></i>
+                <h4 class="font-semibold text-lg md:text-xl mt-4">대화 시작</h4>
+                <p class="text-gray-600">마이크 버튼을 눌러 음성 대화를 시작하거나 텍스트 입력을 통해 질문을 남겨보세요.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <i class="ph ph-chat-circle-dots text-green-500 text-4xl md:text-5xl"></i>
+                <h4 class="font-semibold text-lg md:text-xl mt-4">실시간 응답</h4>
+                <p class="text-gray-600">AI가 여러분의 질문을 이해하고, 적절한 답변과 추천을 즉시 제공합니다.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <i class="ph ph-user-plus text-purple-500 text-4xl md:text-5xl"></i>
+                <h4 class="font-semibold text-lg md:text-xl mt-4">맞춤형 추천</h4>
+                <p class="text-gray-600">개인의 관심사와 생활 패턴에 맞춘 다양한 정보를 추천해 드립니다.</p>
+            </div>
         </div>
-      </section>      
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 강민규. All rights reserved.</p>
     </div>
-  </footer>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-16 md:py-20 bg-white text-center" data-aos="fade-up">
+    <div class="container mx-auto px-4">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">자주 묻는 질문</h3>
+        <div class="max-w-3xl mx-auto text-left">
+            <div class="mb-4">
+                <h4 class="font-semibold text-lg">Q: 이 서비스는 누구를 위한 건가요?</h4>
+                <p class="text-gray-600 mt-1">A: 1인 가구를 포함하여, 바쁜 일상 속에서 필요한 정보를 빠르게 얻고자 하는 모든 분들을 위한 서비스입니다.</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold text-lg">Q: AI와의 대화는 어떻게 이루어지나요?</h4>
+                <p class="text-gray-600 mt-1">A: 음성 또는 텍스트 입력을 통해 AI와 대화할 수 있으며, 질문에 대한 답변과 맞춤형 추천을 실시간으로 제공합니다.</p>
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold text-lg">Q: 개인정보는 어떻게 보호되나요?</h4>
+                <p class="text-gray-600 mt-1">A: 사용자의 개인정보는 철저하게 보호되며, 대화 내용은 서비스 개선 목적으로만 사용됩니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-16 md:py-20 bg-gray-50 text-center" data-aos="fade-up">
+    <h3 class="text-2xl md:text-3xl font-bold mb-8">주요 기능</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <i class="ph ph-device-mobile text-blue-500 text-4xl md:text-5xl"></i>
+            <h4 class="font-semibold text-lg md:text-xl mt-4">쉽고 간편한 사용</h4>
+            <p class="text-gray-600">앱을 설치하고 바로 대화를 시작하세요.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <i class="ph ph-chat-circle-dots text-green-500 text-4xl md:text-5xl"></i>
+            <h4 class="font-semibold text-lg md:text-xl mt-4">스마트 대화 기능</h4>
+            <p class="text-gray-600">AI가 당신의 생활을 돕는 대화를 제공합니다.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <i class="ph ph-user-plus text-purple-500 text-4xl md:text-5xl"></i>
+            <h4 class="font-semibold text-lg md:text-xl mt-4">맞춤형 추천</h4>
+            <p class="text-gray-600">당신에게 꼭 맞는 정보를 추천해 드립니다.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-16 md:py-20 bg-white text-center" data-aos="fade-up">
+    <h3 class="text-2xl md:text-3xl font-bold mb-8">사용자 후기</h3>
+    <p class="text-gray-700 italic max-w-2xl mx-auto">
+        "이 앱을 사용하고 더 이상 외롭지 않아요! AI가 항상 곁에 있어줘요." - 김민지
+    </p>
+</section>
+
+<!-- Download Section -->
+<section id="download" class="py-16 md:py-20 bg-gray-50 text-center" data-aos="fade-up">
+    <h3 class="text-2xl md:text-3xl font-bold mb-8">앱 다운로드</h3>
+    <div class="flex flex-col md:flex-row justify-center items-center md:space-x-4 space-y-4 md:space-y-0">
+        <button class="bg-black text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-800">
+            Google Play 다운로드
+        </button>
+        <button class="bg-black text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-800">
+            App Store 다운로드
+        </button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="bg-gray-900 text-white text-center py-6" data-aos="fade-up">
+    <p>&copy; 2025 반반치킨. 모든 권리 보유.</p>
+    <div class="mt-4 flex justify-center space-x-4">
+        <a href="#" class="text-gray-400 hover:text-white">Instagram</a>
+        <a href="#" class="text-gray-400 hover:text-white">Twitter</a>
+        <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+    </div>
+</footer>
+
+<!-- JavaScript: 모바일 메뉴 토글 및 체험하기 링크 기기별 이동 -->
+<script>
+    // 모바일 내비게이션 토글
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // 체험하기 링크: 모바일이면 experienceMobile.html, 데스크탑이면 experience.html로 이동
+    document.getElementById('experienceLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        window.location.href = isMobile ? 'experienceMobile.html' : 'experience.html';
+    });
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+    });
+</script>
 </body>
 </html>
